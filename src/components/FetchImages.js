@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import SearchBar from "./SearchBar"
 
 const call_config = {
   url: 'https://api.unsplash.com/search/photos',
@@ -32,9 +33,7 @@ class FetchImages extends React.Component {
     // }
     console.log(this.state.data)
     return (
-      <div onSubmit={this.onSearchSubmit} class="ui input focus">
-        <input type="text" placeholder="Search..." />
-      </div>
+      <SearchBar />
     );
   }
 }
