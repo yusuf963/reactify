@@ -1,11 +1,8 @@
 import React from 'react';
-import axios from 'axios';
+import unsplash from '../api/unsplash'
 import SearchBar from "./SearchBar"
 
-const call_config = {
-  url: 'https://api.unsplash.com/search/photos',
-  acess_key: 'tdJmdo0XwlxZqcfU1d6BSmNrwwPbHaUab7Zi0XXYsKc'
-}
+
 class FetchImages extends React.Component {
   state = {
     term: null,
@@ -17,17 +14,12 @@ class FetchImages extends React.Component {
   }
 
   onSearchSubmit = async (term) => {
-    const response = await axios.get(call_config.url, {
+    const response = await unsplash.get('/search/photos', {
       params: {
         query: term
-      },
-      headers: {
-        Authorization: `Client-ID ${call_config.acess_key}`
       }
     })
     this.setState({ images: response.data.results })
-
-
 
     // fetch(call_config.url,
     //   {
