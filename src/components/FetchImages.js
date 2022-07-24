@@ -1,7 +1,7 @@
 import React from 'react';
 import unsplash from '../api/unsplash'
+import ImageList from './fetchApp/ImageList'
 import SearchBar from "./SearchBar"
-
 
 class FetchImages extends React.Component {
   state = {
@@ -20,7 +20,9 @@ class FetchImages extends React.Component {
       }
     })
     this.setState({ images: response.data.results })
-
+    //  try fetch in the future and bench mark betwwen fext vs axios
+    //1. fetch is less size tahn axios
+    //2. you can make better usability with axios with less code
     // fetch(call_config.url,
     //   {
     //     params: {
@@ -43,6 +45,7 @@ class FetchImages extends React.Component {
       <div>
         <SearchBar onSubmit={this.onSearchSubmit} />
         <p>Found {this.state.images.length}</p>
+        <ImageList images={this.state.images} />
 
       </div>
     );
