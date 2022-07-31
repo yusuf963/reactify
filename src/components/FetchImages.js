@@ -21,7 +21,7 @@ class FetchImages extends React.Component {
     //       query: term
     //     },
     //     headers: {
-    //       Authorization: `Client-ID ${call_config.acess_key}`
+    //       Authorization: `Client-ID ${call_config.access_key}`
     //     }
     //   }
     // ).then((res) => {

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class SearchBar extends Component {
   state = {
@@ -8,9 +9,10 @@ class SearchBar extends Component {
   // handleOnInputChange(e) {
   //   console.log(e.target.value)
   // }
-  // make this as arro function to prevent term is not defind error
+  // make this as arrow function to prevent term is not defined error
   handleOnFormSubmit = e => {
     e.preventDefault();
+    onSubmit: PropTypes.any
     this.props.onSubmit(this.state.term);
   };
   render() {

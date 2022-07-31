@@ -14,14 +14,14 @@ class DisplaySeason extends Component {
         iconName: "star",
       },
     };
-    const getSeson = (lat, month) => {
+    const getSeason = (lat, month) => {
       if (month > 5 && month < 9) {
         return lat > 0 ? "summer" : "winter";
       } else {
         return lat < 0 ? "winter" : "summer";
       }
     };
-    const season = getSeson(this.props.lat, new Date().getMonth());
+    const season = getSeason(this.props.lat, new Date().getMonth());
     //  change this into this
     // const text = season === "winter" ? "Its Cold" : "Very Hot"
     const { text, iconName } = seasonConfig[season];
