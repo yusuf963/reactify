@@ -1,25 +1,19 @@
-import React from 'react';
-import unsplash from '../api/unsplash'
-import SearchBar from "./SearchBar"
-
+import React from "react";
+import unsplash from "../api/unsplash";
+import SearchBar from "./SearchBar";
 
 class FetchImages extends React.Component {
   state = {
     term: null,
-    images: []
-  }
-
-  // waht is this doing
-  handleOnSearchSubmit(term) {
-  }
-
-  onSearchSubmit = async (term) => {
-    const response = await unsplash.get('/search/photos', {
+    images: [],
+  };
+  onSearchSubmit = async term => {
+    const response = await unsplash.get("/search/photos", {
       params: {
-        query: term
-      }
-    })
-    this.setState({ images: response.data.results })
+        query: term,
+      },
+    });
+    this.setState({ images: response.data.results });
 
     // fetch(call_config.url,
     //   {
@@ -33,7 +27,7 @@ class FetchImages extends React.Component {
     // ).then((res) => {
     //   console.log(res)
     // })
-  }
+  };
 
   render() {
     // const handleTermInput = (e) => {
@@ -43,7 +37,6 @@ class FetchImages extends React.Component {
       <div>
         <SearchBar onSubmit={this.onSearchSubmit} />
         <p>Found {this.state.images.length}</p>
-
       </div>
     );
   }
