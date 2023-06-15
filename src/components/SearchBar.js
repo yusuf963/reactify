@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {useState} from "react"
 class SearchBar extends Component {
   state = {
     term: ""
